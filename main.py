@@ -1,4 +1,5 @@
 """FACTORY METHOD DB EXAMPLE"""
+
 from typing import Literal
 from abc import ABC, abstractmethod
 from mysql import connector
@@ -65,5 +66,7 @@ class ConcreteCreator(Creator):
 if __name__ == "__main__":
     factory = ConcreteCreator()
     mysql_db = factory.get_db("mysql")
-    mysql_db.connect()
+    mysql_db.connect(
+        host="some host", user="someuser", password="some password", database="some db"
+    )
     mysql_db.disconnect()
